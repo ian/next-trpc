@@ -1,0 +1,40 @@
+{
+  "name": "next-trpc",
+  "version": "0.0.0",
+  "description": "tRPC + Next.js",
+  "keywords": [],
+  "author": "Ian Hunter <ian@ianh.xyz>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client.js"
+  },
+  "typesVersions": {
+    "*": {
+      "client": [
+        "dist/client.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsup --clean src/index.ts src/client.ts && tsc --emitDeclarationOnly",
+    "build:watch": "nodemon --exec \"pnpm build\""
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.10.1",
+    "@trpc/client": "10.0.0-proxy-beta.13",
+    "@trpc/next": "10.0.0-proxy-beta.13",
+    "@trpc/react": "10.0.0-proxy-beta.13",
+    "@trpc/server": "10.0.0-proxy-beta.13"
+  },
+  "peerDependencies": {
+    "next": "^12.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.12",
+    "@types/react": "17.0.37",
+    "tsup": "^6.2.3",
+    "typescript": "^4.6.3"
+  }
+}
