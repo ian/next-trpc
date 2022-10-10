@@ -6,6 +6,7 @@
   "author": "Ian Hunter <ian@ianh.xyz>",
   "license": "MIT",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./client": "./dist/client.js"
@@ -18,7 +19,8 @@
     }
   },
   "scripts": {
-    "build": "tsup --clean src/index.ts src/client.ts && tsc --emitDeclarationOnly",
+    "clean": "rimraf dist",
+    "build": "tsup --clean --external next --external react src/index.ts src/client.ts && tsc --emitDeclarationOnly",
     "build:watch": "nodemon --exec \"pnpm build\""
   },
   "dependencies": {
@@ -29,11 +31,15 @@
     "@trpc/server": "10.0.0-proxy-beta.13"
   },
   "peerDependencies": {
-    "next": "^12.1.6"
+    "next": "^12.1.6",
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
     "@types/react": "17.0.37",
+    "next": "^12.1.6",
+    "rimraf": "^3.0.2",
     "tsup": "^6.2.3",
     "typescript": "^4.6.3"
   }
