@@ -10,7 +10,7 @@
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "preserveWatchOutput": true,
-    "target": "es5",
+    "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
