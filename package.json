@@ -18,6 +18,9 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsup --clean --external next --external react src/index.ts src/client.ts && tsc --emitDeclarationOnly",
