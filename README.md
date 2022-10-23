@@ -19,10 +19,6 @@ Create the tRPC endpoint at `./pages/api/trpc/[trpc].ts`
 ```ts
 import { trpc, nextTRPC } from "next-trpc"
 
-import contracts from "../../../trpc/routers/contracts"
-import lists from "../../../trpc/routers/lists"
-import wallets from "../../../trpc/routers/wallets"
-
 export const router = trpc.router({
   hello: trpc.procedure
     .input(
