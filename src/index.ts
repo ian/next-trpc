@@ -1,2 +1,2 @@
 export { trpc } from "./instance"
-export { nextTRPC } from "./server"
+export * from "./server"
