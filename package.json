@@ -10,7 +10,8 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.cjs",
-    "./client": "./dist/client.cjs"
+    "./client": "./dist/client.cjs",
+    "./react": "./dist/react.cjs"
   },
   "typesVersions": {
     "*": {
@@ -24,7 +25,7 @@
   ],
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsup --clean --external next --external react src/index.ts src/client.ts && tsc --emitDeclarationOnly",
+    "build": "tsup --clean --external next --external react src/**/*.ts && tsc --emitDeclarationOnly",
     "build:watch": "nodemon --exec \"pnpm build\""
   },
   "dependencies": {
