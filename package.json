@@ -17,6 +17,9 @@
     "*": {
       "client": [
         "dist/client.d.ts"
+      ],
+      "react": [
+        "dist/react.d.ts"
       ]
     }
   },
