@@ -4,6 +4,12 @@ import { createTRPCNext } from "@trpc/next"
 import { NextPageContext } from "next"
 import { getBaseUrl } from "./helpers"
 
+export type {
+  DecorateProcedure,
+  DecoratedProcedureRecord
+} from "@trpc/react-query/shared"
+export type { CreateTRPCReactQueryClientConfig } from "@trpc/react-query/shared"
+
 type Opts = {
   url?: string
   headers?: HTTPHeaders | (() => HTTPHeaders | Promise<HTTPHeaders>)
