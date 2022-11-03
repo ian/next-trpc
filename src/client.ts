@@ -20,4 +20,4 @@ export function createClient<Router extends AnyRouter>(opts: Opts = {}) {
   })
 }
 
-export * from "@trpc/server/dist/types"
+export * from "@trpc/server"

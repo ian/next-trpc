@@ -17,7 +17,9 @@ npm i next-trpc
 Create the tRPC endpoint at `./pages/api/trpc/[trpc].ts`
 
 ```ts
-import { trpc, nextTRPC } from "next-trpc"
+import { createInstance, nextTRPC } from "next-trpc"
+
+const trpc = createInstance()
 
 export const router = trpc.router({
   hello: trpc.procedure
@@ -43,9 +45,9 @@ Use tRPC in your pages/components:
 
 ```tsx
 import { Router } from "../pages/api/trpc/[trpc]"
-import { createClient } from "next-trpc/client"
+import { createClient, withTRPC } from "next-trpc/client"
 
-export const client = createClient<Router>()
+const client = createClient<Router>()
 
 const Component = () => {
   const { data: msg } = client.hello.useQuery({
@@ -54,22 +56,24 @@ const Component = () => {
 
   return <div>{msg}</div>
 }
+
+export default withTRPC(Component)
 ```
 
 And you're done! Read more on how to use tRPC at [https://trpc.io/](https://trpc.io/).
 
 # Examples
 
-## Custom `Authentication` header
+## With Authentication
 
 Add the context handler to your API endpoint in `./pages/api/trpc/[trpc].ts`
 
 ```ts
-import { trpc, nextTRPC } from "next-trpc"
+import { nextTRPC } from "next-trpc"
 
 export type Context = {
   auth?: {
-    address: string
+    email: string
   }
 }
 
@@ -84,6 +88,20 @@ export const context = async ({ req }): Promise<Context> => {
 
   return {}
 }
+
+const trpc = createInstance<Context>()
+
+export const router = trpc.router({
+  hello: trpc.procedure
+    .input(
+      object({
+        name: string().required()
+      })
+    )
+    .query(async ({ input }) => {
+      return `Hello, ${input.name}`
+    })
+})
 
 export default nextTRPC({
   createContext: context,

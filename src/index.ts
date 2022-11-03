@@ -1,2 +1,2 @@
-export { trpc } from "./instance"
+export { createInstance } from "./instance"
 export * from "./server"
