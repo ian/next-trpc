@@ -1,3 +1,4 @@
+import fetch from "cross-fetch"
 import { QueryClientProviderProps } from "@tanstack/react-query"
 import { httpBatchLink, HTTPHeaders } from "@trpc/client"
 import { createTRPCNext } from "@trpc/next"
@@ -55,6 +56,7 @@ export function createClient<Router extends AnyRouter>(opts: Opts = {}) {
       return {
         links: [
           httpBatchLink({
+            fetch,
             url,
             headers
           })

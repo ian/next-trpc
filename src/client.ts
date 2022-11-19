@@ -1,3 +1,4 @@
+import fetch from "cross-fetch"
 import { createTRPCProxyClient, httpBatchLink, HTTPHeaders } from "@trpc/client"
 import { AnyRouter } from "@trpc/server"
 import { getBaseUrl } from "./helpers"
@@ -13,6 +14,7 @@ export function createClient<Router extends AnyRouter>(opts: Opts = {}) {
   return createTRPCProxyClient<Router>({
     links: [
       httpBatchLink({
+        fetch,
         url,
         headers
       })
