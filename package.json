@@ -37,11 +37,11 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.10.3",
-    "@trpc/client": "10.0.0-proxy-beta.21",
-    "@trpc/next": "10.0.0-proxy-beta.21",
+    "@trpc/client": "10.6.0",
+    "@trpc/next": "10.6.0",
     "@trpc/react": "9.27.4",
-    "@trpc/react-query": "10.0.0-proxy-beta.21",
-    "@trpc/server": "10.0.0-proxy-beta.21",
+    "@trpc/react-query": "10.6.0",
+    "@trpc/server": "10.6.0",
     "cross-fetch": "^3.1.5",
     "superjson": "^1.12.1"
   },
