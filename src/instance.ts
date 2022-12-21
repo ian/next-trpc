@@ -1,4 +1,5 @@
 import { initTRPC } from "@trpc/server"
+import superjson from "superjson"
 import {
   type RootConfigTypes,
   type RuntimeConfig,
@@ -9,6 +10,7 @@ import {
 
 export function createInstance<Context extends Record<string, any>>() {
   return initTRPC.context<Context>().create({
+    transformer: superjson,
     errorFormatter({ error, shape }) {
       console.error(error)
       return shape

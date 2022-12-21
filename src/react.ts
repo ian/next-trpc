@@ -1,4 +1,5 @@
 import fetch from "cross-fetch"
+import superjson from "superjson"
 import { QueryClientProviderProps } from "@tanstack/react-query"
 import { httpBatchLink, HTTPHeaders } from "@trpc/client"
 import { createTRPCNext } from "@trpc/next"
@@ -61,6 +62,7 @@ export function createClient<Router extends AnyRouter>(opts: Opts = {}) {
             headers
           })
         ],
+        transformer: superjson,
         queryClientConfig
       }
     },
