@@ -1,6 +1,6 @@
 {
   "name": "next-trpc",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "tRPC + Next.js",
   "keywords": [],
   "author": "Ian Hunter <ian@ianh.xyz>",
