@@ -46,7 +46,7 @@
     "superjson": "^1.12.1"
   },
   "peerDependencies": {
-    "next": "^12.1.6",
+    "next": ">=12",
     "react": ">=16.8",
     "react-dom": ">=16.8"
   },
